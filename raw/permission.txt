@@ -1,0 +1,24 @@
+{  
+   "permissions":[  
+      {  
+         "name":"Contact",
+         "detail":"Read contact \n Write contact",
+         "icon_url":"static url"
+      },
+      {  
+         "name":"SMS",
+         "detail":"Read sms \n Write sms",
+         "icon_url":"static url"
+      },
+      {  
+         "name":"Call",
+         "detail":"Read call history \n Allow to call",
+         "icon_url":"static url"
+      },
+      {  
+         "name":"Bluetooth",
+         "detail":"Connect to device \n Pairing device",
+         "icon_url":"static url"
+      }
+   ]
+}

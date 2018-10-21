@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+ 	<appender name="TIME_BASED_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+ 		
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">    	
+      		<!-- daily rollover -->
+      		<fileNamePattern>logs/%d{yyyy-MM-dd}_appstore.log</fileNamePattern>
+    	</rollingPolicy>
+
+    	<encoder>
+      		<pattern>%d{yyyy-MM-dd HH:mm} ---> %-5level %logger{35} - %msg%n</pattern>
+    	</encoder>
+    	
+  	</appender>
+  	
+  	<appender name="hiber_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+ 		
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">    	
+      		<!-- daily rollover -->
+      		<fileNamePattern>logs/%d{yyyy-MM-dd}_appStoreCloud_hibernate.log</fileNamePattern>
+    	</rollingPolicy>
+
+    	<encoder>
+      		<pattern>%d{yyyy-MM-dd HH:mm} ---> %-5level %logger{35} - %msg%n</pattern>
+    	</encoder>
+    	
+  	</appender>
+  	
+  	<appender name="spring_log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+ 		
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">    	
+      		<!-- daily rollover -->
+      		<fileNamePattern>logs/%d{yyyy-MM-dd}_appStoreCloud_spring.log</fileNamePattern>
+    	</rollingPolicy>
+
+    	<encoder>
+      		<pattern>%d{yyyy-MM-dd HH:mm} ---> %-5level %logger{35} - %msg%n</pattern>
+    	</encoder>
+    	
+  	</appender>
+  	
+  	
+
+<logger name="org.bitvault" level="debug"
+    additivity="false">
+    <appender-ref ref="TIME_BASED_FILE" />
+</logger>
+<logger name="org.hibernate" level="error"
+    additivity="false">
+    <appender-ref ref="hiber_log" />
+</logger>
+<logger name="org.springframework.web" level="error"
+    additivity="false">
+    <appender-ref ref="spring_log" />
+</logger>
+<root level="error">
+    <appender-ref ref="TIME_BASED_FILE" />
+</root>
+</configuration>

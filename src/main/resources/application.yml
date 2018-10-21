@@ -1,0 +1,28 @@
+---
+server:
+  port: 8081
+  contextPath: /cloud/
+ 
+security.auth.jwt:
+  tokenExpirationTime: 360 # Number of minutes
+  refreshTokenExpTime: 720 # Minutes
+  tokenIssuer: http://emdeddeddownload.com
+  tokenSigningKey: highly$ecuredKeY
+---
+datasource:
+  sampleapp:
+    url: jdbc:mysql://localhost:3306/app_store_cloud
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    defaultSchema:
+    maxPoolSize: 20
+    hibernate:
+      hbm2ddl.method: update-create
+      show_sql: true
+      format_sql: true
+      dialect: org.hibernate.dialect.MySQLDialect
+---
+spring:
+  mvc:
+    dispatch-options-request: true
